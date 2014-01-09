@@ -1,0 +1,9 @@
+[general]
+version = "1.0.0"
+title = "49 канал Новосибирск Бегущая строка Прием размещение объявлений ул. Ленина 53-27"
+owner = 
+admin = 
+timezone = "Asia/Novosibirsk"
+debug = 0
+
+[modules]

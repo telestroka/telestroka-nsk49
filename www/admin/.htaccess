@@ -1,0 +1,4 @@
+AuthName "Admin page"
+AuthType Basic
+AuthUserFile /home/telestroka/nsk49.telestroka.ru/docs/admin/.htpasswd
+require valid-user

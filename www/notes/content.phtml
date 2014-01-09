@@ -1,0 +1,37 @@
+<h1>Архив объявлений бегущей строки 49 канала г. Новосибирска</h1>
+
+<? if ($site->getUserAccess() > 3): ?>
+	<ul class="ns">
+		<? if ($notes): ?>
+			<? foreach ($notes as $item_params): ?>
+				<li id="item<?=$item_params['id'];?>">
+					<?=Date::sqlToDate($item_params['date']);?>
+					<? if ($site->getUserAccess() >= $config['access']['edit']): ?>
+						&nbsp; <a href="/<?=$site->module;?>/edit/?id=<?=$item_params['id'];?>">редактировать</a>
+					<? endif; ?>
+					<? if ($site->getUserAccess() >= $config['access']['del']): ?>
+						&nbsp; <a href="/<?=$site->module;?>/del/?id=<?=$item_params['id'];?>" data-request="ajax" data-confirm="item-del">удалить</a>
+					<? endif; ?>
+				</li>
+				<? endforeach; ?>
+			<? else: ?>
+			<li>Данных нет</li>
+		<? endif; ?>
+	</ul>
+	<? if ($site->getUserAccess() >= $config['access']['add']): ?>
+		<p><a href="/<?=$site->module;?>/add">Добавить</a></p>
+	<? endif; ?>
+<? else: ?>
+	<? foreach ($notes as $notes_info): ?>
+		<h3><?
+			$month = Date::getMonthByNumber(date('n', strtotime($notes_info['date'])));
+			$day = date('j', strtotime($notes_info['date']));
+			echo  $day . ' ' . $month;
+			?></h3>
+		<p><?=nl2br($notes_info['notes']);?></p>
+	<? endforeach; ?>
+
+	<p class="large-link-list" style="margin-top: 50px">
+		<a href="/">Подать своё объявление в бегущую СТРОКУ на 49 канале г. Новосибирск</a>
+	</p>
+<? endif; ?>

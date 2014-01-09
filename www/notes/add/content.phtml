@@ -1,0 +1,15 @@
+<h1>Добавление объявлений</h1>
+<form name="add" method="post" action="<?=$site->pageUrl;?>" class="form" data-request="ajax">
+	<input type="hidden" name="key" value="">
+
+	<label for="notes" class="label"> <?=$form->notes->title;?>:</label>
+	<textarea id="notes" name="notes" rows="20" cols="17" class="textarea"><?=$form->notes->getDisplayValue();?></textarea>
+	<div class="alert"><?=$form->notes->error;?></div>
+
+	<label for="date" class="label"><?=$form->date->title;?>:</label>
+	<input id="date" name="date" type="text" maxlength="10" class="datepicker" value="<?=$form->date->value;?>">
+	<div class="alert"><?=$form->date->error;?></div>
+
+	<button type="submit" class="submit">Добавить</button>
+	<div class="alert"><?=$form->error;?></div>
+</form>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8' ?>
+<channel>
+	<price>
+		<wordsInPhone>5</wordsInPhone>
+		<social>
+			<full>140</full>
+		</social>
+	</price>
+	<discounts>
+		<discount num="1">0.11</discount>
+		<discount num="2">1.11</discount>
+		<discount num="3">2.12</discount>
+		<discount num="4">3.70</discount>
+		<discount num="5">4.38</discount>
+		<discount num="6">5.12</discount>
+		<discount num="7">6.31</discount>
+		<discount num="8">7.07</discount>
+		<discount num="9">8.89</discount>
+		<discount num="10">9.91</discount>
+	</discounts>
+</channel>

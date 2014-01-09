@@ -1,0 +1,135 @@
+@import "mixins.less";
+@import "reset.less";
+@import "classes.less";
+
+@blue-text: #438dcc;
+@orange-text: #f26522;
+@green-text: #197a30;
+@text-color: #626262;
+@text-size: 13px;
+@text-font: Arial, sans-serif;
+@site-background: #fff;
+@link-color: @blue-text;
+@link-visited-color: @blue-text;
+@link-hover-color: @orange-text;
+@container-width: 860px;
+
+
+.orange {color: @orange-text;}
+a {color: @link-color; transition: color 2s;}
+a:hover {color: @link-hover-color; transition: color 0.5s;}
+body {
+  overflow-x: hidden;
+  color: @text-color;
+
+  header {
+	background-color: #0c250f;
+	padding: 30px 0 40px;
+
+	.container {
+	  margin: auto;
+	  max-width: @container-width;
+	  padding: 0 10px;
+
+	  img {display: block;}
+	  #logo {float: right;}
+	  #channel-logo {
+		max-width: 820px;
+		width: 100%;
+		margin: -80px auto;
+	  }
+	  h2 {
+		display: block;
+		text-align: center;
+		color: #acd373;
+		font-size: 27px;
+		font-weight: normal;
+		margin-top: 40px;
+	  }
+	}
+  }
+
+  #top-panel {
+    background: #8dc63f url(/i/top-panel-bg.gif) repeat-x;
+	height: 25px;
+  }
+  section {
+	margin: auto;
+	max-width: @container-width;
+	padding: 60px 10px 120px;
+
+	.electrotext {
+	  #electrotext {
+		min-height: 40px;
+	  }
+	  .link-area {
+		text-align: right;
+		padding-right: 50px;
+	  }
+	}
+	h1 {
+	  .big-text();
+	  color: @green-text;
+	  margin: 60px 0 30px;
+	}
+	.green {
+	  color: @green-text;
+	}
+
+	.floatleft {
+	  width: 60%;
+
+	  p {
+		margin: 30px 0;
+	  }
+	  fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+	  }
+	  h2 {
+		.big-text();
+	  }
+	  .contacts {
+		padding-left: 35px;
+	  }
+	  button {
+		height: 36px;
+		width: 178px;
+	  }
+	}
+	.floatright {
+	  width: 35%;
+	  padding-top: 40px;
+
+	  strong {
+		.big-text();
+		display: block;
+		color: @orange-text;
+	  }
+	}
+	.large-link-list {
+	  font-size: 16px;
+
+	  a {
+		margin-right: 10px;
+	  }
+	}
+	h3 {
+	  color: @green-text;
+	  margin: 50px 0 0;
+	}
+	h3+p {
+	  margin-top: 0;
+	}
+  }
+  section>h1:first-child {
+	margin-top: 0;
+  }
+  footer {
+	margin: auto;
+	max-width: @container-width;
+	padding: 0 10px;
+  }
+  #counter {}
+}
