@@ -3,6 +3,9 @@
 <? if ($site->getUserAccess() > 3): ?>
 	<ul class="ns">
 		<? if ($notes): ?>
+		<? if ($site->getUserAccess() >= $config['access']['add']): ?>
+		<p><a href="/<?=$site->module;?>/add">Добавить</a></p>
+	<? endif; ?>
 			<? foreach ($notes as $item_params): ?>
 				<li id="item<?=$item_params['id'];?>">
 					<?=Date::sqlToDate($item_params['date']);?>
@@ -18,9 +21,8 @@
 			<li>Данных нет</li>
 		<? endif; ?>
 	</ul>
-	<? if ($site->getUserAccess() >= $config['access']['add']): ?>
-		<p><a href="/<?=$site->module;?>/add">Добавить</a></p>
-	<? endif; ?>
+
+	
 <? else: ?>
 	<? foreach ($notes as $notes_info): ?>
 		<h3><?
@@ -30,6 +32,26 @@
 			?></h3>
 		<p><?=nl2br($notes_info['notes']);?></p>
 	<? endforeach; ?>
+
+	<p class="large-link-list" style="margin-top: 50px">
+		<? if ($currentPage == 1): ?>
+			Текущее
+		<? else: ?>
+			<a href="/notes/">Текущее</a>
+		<? endif; ?>
+		<span style="margin: 0 40px">
+			<? if ($currentPage == 1): ?>
+				<<<
+			<? else: ?>
+				<a href="/notes/?page=<?=$currentPage - 1;?>"><<<</a>
+			<? endif; ?>
+		</span>
+		<? if ($currentPage == $countPages): ?>
+			Еще раньше >>>
+		<? else: ?>
+			<a href="/notes/?page=<?=$currentPage + 1;?>">Еще раньше >>></a>
+		<? endif; ?>
+	</p>
 
 	<p class="large-link-list" style="margin-top: 50px">
 		<a href="/">Подать своё объявление в бегущую СТРОКУ на 49 канале г. Новосибирск</a>
